@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_1/home.dart';
+import 'package:project_1/screen/forgot_password.dart';
 
 class RegScreen extends StatefulWidget {
   const RegScreen({super.key});
@@ -80,7 +81,13 @@ class _RegScreenState extends State<RegScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text("Forgot Password ?", style: TextStyle(color: Colors.blue)),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder:(context) =>ForgotPasswordScreen()));
+                  },
+                  child:
+                    Text("Forgot Password ?", style: TextStyle(color: Colors.blue)),
+                ),
               ],
             ),
           ),
