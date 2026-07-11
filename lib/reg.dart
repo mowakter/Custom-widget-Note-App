@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:project_1/home.dart';
-import 'package:project_1/screen/forgot_password.dart';
 
 class RegScreen extends StatefulWidget {
   const RegScreen({super.key});
@@ -10,6 +9,10 @@ class RegScreen extends StatefulWidget {
 }
 
 class _RegScreenState extends State<RegScreen> {
+  TextEditingController email = TextEditingController();
+  TextEditingController number = TextEditingController();
+  TextEditingController name = TextEditingController();
+  TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +32,7 @@ class _RegScreenState extends State<RegScreen> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
-
+              controller: email,
               decoration: InputDecoration(
                 labelText: "Email",
                 prefixIcon: Icon(Icons.email),
@@ -42,6 +45,7 @@ class _RegScreenState extends State<RegScreen> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
+              controller: number,
               decoration: InputDecoration(
                 labelText: "Number",
                 prefixIcon: Icon(Icons.person),
@@ -54,6 +58,7 @@ class _RegScreenState extends State<RegScreen> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
+              controller: name,
               decoration: InputDecoration(
                 labelText: "Name",
                 prefixIcon: Icon(Icons.person),
@@ -66,6 +71,7 @@ class _RegScreenState extends State<RegScreen> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
+              controller: password,
               decoration: InputDecoration(
                 labelText: "Password",
                 prefixIcon: Icon(Icons.lock),
@@ -74,21 +80,6 @@ class _RegScreenState extends State<RegScreen> {
                   borderRadius: BorderRadius.circular(20),
                 ),
               ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                InkWell(
-                  onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder:(context) =>ForgotPasswordScreen()));
-                  },
-                  child:
-                    Text("Forgot Password ?", style: TextStyle(color: Colors.blue)),
-                ),
-              ],
             ),
           ),
           InkWell(
@@ -108,7 +99,6 @@ class _RegScreenState extends State<RegScreen> {
               ),
             ),
           ),
-
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             spacing: 40,
