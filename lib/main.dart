@@ -5,6 +5,8 @@ import 'package:project_1/reg.dart';
 import 'package:project_1/screen/forgot_password.dart';
 import 'package:project_1/splash.dart';
 
+import 'Custom widget/text widget.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:SplashScreen(),
+      home:HomeScreen(),
     );
   }
  }

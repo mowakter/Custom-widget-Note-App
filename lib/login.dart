@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:project_1/Custom%20widget/text%20widget.dart';
+import 'package:project_1/home.dart';
 
 import 'package:project_1/screen/forgot_password.dart';
 import 'package:project_1/reg.dart';
@@ -22,41 +24,9 @@ class _LoginScreenState extends State<LoginScreen> {
           Image.network(
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAlFlbIg6UsLYnlL2hZZGrcvmSCkWl9bwy9kHzpuVZxQ&s",
           ),
-          Text(
-            "LOGIN HERE",
-            style: TextStyle(
-              fontSize: 35,
-              fontWeight: FontWeight.bold,
-              color: Colors.pink,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: email,
-              decoration: InputDecoration(
-                labelText: "Email",
-                prefixIcon: Icon(Icons.email),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: password,
-              decoration: InputDecoration(
-                labelText: "Password",
-                prefixIcon: Icon(Icons.lock),
-                suffixIcon: Icon(Icons.remove_red_eye),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-            ),
-          ),
+          MyTextWidget(title: "LOGIN HERE"),
+          MyTextField(email: email, hint: "Email",),
+          MyTextField(email:  password,hint: "Password",),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Row(
@@ -84,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
               if (email.text == "mow@gmail.com" && password.text == '290905') {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => RegScreen()),
+                  MaterialPageRoute(builder: (context) => HomeScreen()),
                 );
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(
@@ -106,7 +76,52 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            spacing: 40,
+            children: [
+              Text("Not Register Yet?"),
+              InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) =>RegScreen()));
+                },
+                child: Text(
+                  "Sign Up",
+                  style: TextStyle(color: Colors.deepPurpleAccent),
+                ),
+              ),
+            ],
+          ),
         ],
+      ),
+    );
+  }
+}
+
+class MyTextField extends StatelessWidget {
+   MyTextField({
+    super.key,
+    required this.email,required this.hint,
+  });
+
+   TextEditingController email;
+   String hint;
+
+  TextEditingController? get controller => null;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextField(
+        controller: controller,
+        decoration: InputDecoration(
+          label: MyTextWidget(title: hint),
+          prefixIcon: Icon(Icons.email),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+        ),
       ),
     );
   }

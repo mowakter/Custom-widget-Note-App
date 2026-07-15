@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_1/home.dart';
+import 'package:project_1/login.dart';
 import 'package:project_1/reg.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
@@ -51,25 +52,10 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             ),
           ),
           SizedBox(height: 10,),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: TextField(
-              controller: password,
-              decoration: InputDecoration(
-                labelText: "New Password",
-                prefixIcon:  Icon(Icons.lock),
-                suffixIcon: Icon(Icons.remove_red_eye),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-              ),
-            ),
-          ),
-      SizedBox(height: 30),
           ElevatedButton(
             style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
               onPressed: () {
-                Navigator.push(context,MaterialPageRoute(builder: (context) =>RegScreen()));
+                Navigator.push(context,MaterialPageRoute(builder: (context) =>LoginScreen()));
               },
               child: Text("RESET PASSWORD")),
         ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_1/home.dart';
+import 'package:project_1/login.dart';
 
 class RegScreen extends StatefulWidget {
   const RegScreen({super.key});
@@ -9,10 +10,11 @@ class RegScreen extends StatefulWidget {
 }
 
 class _RegScreenState extends State<RegScreen> {
-  TextEditingController email = TextEditingController();
-  TextEditingController number = TextEditingController();
   TextEditingController name = TextEditingController();
+  TextEditingController phone = TextEditingController();
+  TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,59 +31,10 @@ class _RegScreenState extends State<RegScreen> {
           ),
           Text("Create your  new account Registration now"),
           SizedBox(height: 20,),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: email,
-              decoration: InputDecoration(
-                labelText: "Email",
-                prefixIcon: Icon(Icons.email),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: number,
-              decoration: InputDecoration(
-                labelText: "Number",
-                prefixIcon: Icon(Icons.person),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: name,
-              decoration: InputDecoration(
-                labelText: "Name",
-                prefixIcon: Icon(Icons.person),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: password,
-              decoration: InputDecoration(
-                labelText: "Password",
-                prefixIcon: Icon(Icons.lock),
-                suffixIcon: Icon(Icons.remove_red_eye),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-            ),
-          ),
+          MyTextField(email: name, hint: "Enter your Name",),
+          MyTextField(email: phone, hint: "Enter your Phone",),
+          MyTextField(email: email, hint: "Enter your Email",),
+          MyTextField(email: password, hint: "Enter your Password",),
           InkWell(
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) =>HomeScreen()));
@@ -94,7 +47,7 @@ class _RegScreenState extends State<RegScreen> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                        child: Text("Login", style: TextStyle(fontSize: 25))),
+                        child: Text("Register", style: TextStyle(fontSize: 25))),
                 ],
               ),
             ),
@@ -103,19 +56,45 @@ class _RegScreenState extends State<RegScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             spacing: 40,
             children: [
-              Text("Not Register Yet?"),
+              Text("Already registered"),
               InkWell(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) =>HomeScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) =>LoginScreen()));
                 },
                 child: Text(
-                  "Sign Up",
+                  "Sign In",
                   style: TextStyle(color: Colors.deepPurpleAccent),
                 ),
               ),
             ],
           ),
         ],
+      ),
+    );
+  }
+}
+class MyTextField extends StatelessWidget {
+  MyTextField({
+    super.key,
+    required this.email,required this.hint,
+  });
+
+  TextEditingController email;
+  String hint;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextField(
+        controller: email,
+        decoration: InputDecoration(
+          labelText: hint,
+          prefixIcon: Icon(Icons.email),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+        ),
       ),
     );
   }
