@@ -16,7 +16,7 @@ class MyTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      maxLines: mLine ?? 2,
+      maxLines: mLine ?? 3,
       overflow: TextOverflow.ellipsis,
       style: TextStyle(color: tColor ?? Colors.green, fontSize: tSize ?? 20),
     );

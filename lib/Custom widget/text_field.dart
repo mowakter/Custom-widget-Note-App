@@ -8,17 +8,15 @@ class MyTextField extends StatelessWidget {
   TextEditingController email;
   String hint;
 
-  TextEditingController? get controller => null;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextField(
-        controller: controller,
+        controller: email,
         decoration: InputDecoration(
-          labelText: "Email",
-          prefixIcon: Icon(Icons.email),
+          labelText: hint,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
           ),

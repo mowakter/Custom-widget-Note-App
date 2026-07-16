@@ -21,9 +21,6 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.network(
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAlFlbIg6UsLYnlL2hZZGrcvmSCkWl9bwy9kHzpuVZxQ&s",
-          ),
           MyTextWidget(title: "LOGIN HERE"),
           MyTextField(email: email, hint: "Email",),
           MyTextField(email:  password,hint: "Password",),
