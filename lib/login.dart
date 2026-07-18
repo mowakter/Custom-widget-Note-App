@@ -114,7 +114,7 @@ class MyTextField extends StatelessWidget {
         controller: controller,
         decoration: InputDecoration(
           label: MyTextWidget(title: hint),
-          prefixIcon: Icon(Icons.email),
+          //label: MyTextWidget(title: hint),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
           ),
