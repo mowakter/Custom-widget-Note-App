@@ -32,7 +32,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 context: context,
                 builder: (context) => AlertDialog(
                   title: MyTextWidget(
-                    title: "${NotesData.note[i]["title"]}",tSize: 25,
+                    title: "${NotesData.note[i]["title"]}",
+                    tSize: 25,
                     tColor: Colors.black,
                   ),
                   content: MyTextWidget(
@@ -67,31 +68,45 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             trailing: InkWell(
               onTap: () {
-                 title.text = "${NotesData.note[i]["title"]}";
-                 details.text = "${NotesData.note[i]["details"]}";
-                 showDialog(
-                     barrierDismissible: false,
-                     context: context, builder: (context) => AlertDialog(
-                   title: MyTextWidget(title: "Update"),
-                   content: Column(
-                     mainAxisSize: MainAxisSize.min,
-                     children: [
-                       MyTextField(email: title, hint: "Enter Your Title"),
-                       MyTextField(email: details, hint: "Enter Your Notes Details"),
-                     ],
-                   ),
-                   actions: [
-                     ElevatedButton(onPressed: (){
-                       Navigator.pop(context);
-                     }, child: Text("Cancel")),
-                     ElevatedButton(onPressed: (){setState(() {
-                       NotesData.note[i]["title"] = title.text;
-                       NotesData.note[i]["details"] = details.text;
-                     });
-                       Navigator.pop(context);
-                     }, child: Text("Save"))
-                   ],
-                 ));
+                title.text = "${NotesData.note[i]["title"]}";
+                details.text = "${NotesData.note[i]["details"]}";
+                showDialog(
+                  barrierDismissible: false,
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    title: MyTextWidget(title: "Update"),
+                    content: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        MyTextField(email: title, hint: "Enter Your Title"),
+                        MyTextField(
+                          email: details,
+                          hint: "Enter Your Notes Details",
+                        ),
+                      ],
+                    ),
+                    actions: [
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text("Cancel"),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            NotesData.note[i]["title"] = title.text;
+                            NotesData.note[i]["details"] = details.text;
+                          });
+                          title.clear();
+                          details.clear();
+                          Navigator.pop(context);
+                        },
+                        child: Text("Save"),
+                      ),
+                    ],
+                  ),
+                );
               },
               child: Icon(Icons.edit_note, color: Colors.black),
             ),
@@ -114,9 +129,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
               actions: [
-                ElevatedButton(onPressed: (){
-                  Navigator.pop(context);
-                }, child: Text("Cancel")),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text("Cancel"),
+                ),
                 ElevatedButton(
                   onPressed: () {
                     if (title.text.isEmpty) {
@@ -131,7 +149,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     });
                     setState(() {});
                     title.clear();
+                   // title.clear();
                     details.clear();
+                    //details.clear();
                     Navigator.pop(context);
                   },
                   child: Text("Add"),
