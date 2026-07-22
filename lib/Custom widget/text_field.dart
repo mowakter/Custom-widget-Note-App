@@ -15,6 +15,7 @@ class MyTextField extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: TextField(
         controller: email,
+        //controller: email,
         decoration: InputDecoration(
           labelText: hint,
           border: OutlineInputBorder(

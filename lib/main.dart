@@ -3,6 +3,8 @@ import 'package:project_1/home.dart';
 import 'package:project_1/login.dart';
 import 'package:project_1/reg.dart';
 import 'package:project_1/screen/forgot_password.dart';
+import 'package:project_1/screen/students/students_details.dart';
+import 'package:project_1/screen/students/students_list.dart';
 import 'package:project_1/splash.dart';
 
 import 'Custom widget/text widget.dart';
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:LoginScreen(),
+      home:StudentsList(),
     );
   }
  }
