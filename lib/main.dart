@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_1/home.dart';
-import 'package:project_1/login.dart';
-import 'package:project_1/reg.dart';
-import 'package:project_1/screen/forgot_password.dart';
-import 'package:project_1/screen/students/students_details.dart';
+import 'package:project_1/screen/students/student_add.dart';
 import 'package:project_1/screen/students/students_list.dart';
-import 'package:project_1/splash.dart';
-
-import 'Custom widget/text widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,13 +8,11 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:StudentsList(),
+      home:StudentsList()
     );
   }
  }
